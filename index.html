@@ -32,8 +32,10 @@
             <div class="col-md-12 text-center padding"><img class="wheel" src="img/dice3.png" alt="Kostka" id="kostka"></div>
         </div>
         <div class="margin row">
-            <div class="text-center col-md-6"><a href="#" class="btn btn-info button text-center" id="tlacitko"><p class="hrejtext">Start</p></a></div>
-            <div class="text-center col-md-6"><a href="#statsproid" class="btn btn-info button text-center"><p class="hrejtext">Statistiky</p></a></div>
+            <audio id="audioMusic" src="audio/spin.mp3"></audio>
+            <div class="text-center col-md-6"><a onclick="bell()" href="#" class="btn btn-info button text-center" id="tlacitko"><p class="hrejtext">Start</p></a></div>
+            <audio id="audioMusic2" src="audio/int1.mp3"></audio>
+            <div class="text-center col-md-6"><a onclick="bell2()" href="#statsproid" class="btn btn-info button text-center"><p class="hrejtext">Statistiky</p></a></div>
         </div>
         <div class="col-md-12 text-center padding2" id="statistika">
             <h2 id="statsproid" class="credits">Statistika</h2>
@@ -60,6 +62,21 @@
         <div class="dole">Tomáš Menšík</div>
 
     </main>
+
+
+    <script>
+        
+        var audio = document.getElementById("audioMusic");
+            function bell(){
+                audio.play();
+            }
+
+                    
+        var audio2 = document.getElementById("audioMusic2");
+            function bell2(){
+                audio2.play();
+            }
+    </script>
 
     <script src="kostka.js"></script>
 </body>

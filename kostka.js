@@ -97,7 +97,7 @@ function vypisStatistiky() {
   startButton.addEventListener('click', () => {
     startButton.style.pointerEvents = 'none';
     deg = Math.floor(3000 + Math.random() * 5000);
-    wheel.style.transition = 'all 5s ease-out';
+    wheel.style.transition = 'all 8s ease-out';
     wheel.style.transform = `rotate(${deg}deg)`;
     wheel.classList.add('blur');
   });
