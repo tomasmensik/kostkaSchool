@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="kostka.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -11,9 +13,8 @@
 
     <!--HEADER-->
 
-    <header class="jumbotron bg-warning">
-
-        <h1 class="display-3 text-light text-center">Kostka</h1>
+    <header>
+        <h1 class="display-1 text-light mx-auto text-center">Kostka</h1>
 
     </header>
 
@@ -21,20 +22,41 @@
 
     <main class="container">
 
-        <div><img src="img/dice3.png" alt="Kostka" id="kostka"></div>
-        <div id="statistika">Statistika</div>
-        <div><button class="btn btn-danger" id="tlacitko">HREJ</button></div>
+        <div class="row">
+            <div class="col-md-12 text-center tmhr">
+                <p class="credits">Tomáš Menšík & JavaScript</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center padding"><img class="wheel" src="img/dice3.png" alt="Kostka" id="kostka"></div>
+        </div>
+        <div class="margin text-center col-md-12"><a href="#" class="btn btn-info button text-center" id="tlacitko"><p class="hrejtext">Klikni</p></a></div>
+        <div class="col-md-12 text-center padding2" id="statistika">
+            <h2 class="credits">Statistika</h2>
+            <hr>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <table class="content-table col-md-12">
+                <thead>
+                  <tr>
+                    <th>Počet hodů</th>
+                    <th>Poslední hod</th>
+                    <th>Součet</th>
+                    <th>Průměr</th>
+                    <th>Maximum</th>
+                    <th>Minimum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="dole">Tomáš Menšík</div>
 
     </main>
-
-    <!--FOOTER-->
-
-    <footer>
-
-
-
-    </footer>
-    
 
     <script src="kostka.js"></script>
 </body>

@@ -1,6 +1,7 @@
 const kostka = document.getElementById('kostka');
 const statistika = document.getElementById('statistika');
 const tlacitko = document.getElementById('tlacitko');
+const table = document.querySelector('table');
 let hod = 1;
 let hody = [];
 
@@ -40,11 +41,74 @@ function min(){
     return minimum;
 }
 
-function vypisStatistiky() {
-    statistika.innerHTML = `<p>Poslední hod: ${hod}</p>`;
-    statistika.innerHTML += `<p>Počet hodů: ${hody.length}</p>`;
-    statistika.innerHTML += `<p>Součet: ${suma()}</p>`;
-    statistika.innerHTML += `<p>Průměr: ${(suma() / hody.length).toFixed(2)}</p>`;
-    statistika.innerHTML += `<p>Maximum ${max()}</p>`;
-    statistika.innerHTML += `<p>Minimum: ${min()}</p>`;
+function active(){
+    x = hody.length;
+    y = x + 1;
+
+    return y;
 }
+
+function vypisStatistiky() {
+    let posledniHod = hod;
+    let pocetHodu = hody.length;
+    let soucetHodu = suma();
+    let prumerHodu = (suma() / hody.length).toFixed(2);
+    let maximumHodu = max();
+    let minimumHodu = min();
+    let sum = active();
+                
+    if(sum % 2 !== 0){
+        let template = `                  
+        <tr class="active-row">
+            <td>${pocetHodu}</td>
+            <td>${posledniHod}</td>
+            <td>${soucetHodu}</td>
+            <td>${prumerHodu}</td>
+            <td>${maximumHodu}</td>
+            <td>${minimumHodu}</td>
+        </tr>
+        `;
+
+        table.innerHTML += template;
+    }
+
+    else if(sum % 2 === 0){
+        let template = `                  
+        <tr>
+            <td>${pocetHodu}</td>
+            <td>${posledniHod}</td>
+            <td>${soucetHodu}</td>
+            <td>${prumerHodu}</td>
+            <td>${maximumHodu}</td>
+            <td>${minimumHodu}</td>
+        </tr>
+        `;
+        
+        table.innerHTML += template;        
+    }
+}
+
+
+(function() {
+  const wheel = document.querySelector('.wheel');
+  const startButton = document.querySelector('.button');
+  let deg = 0;
+
+  startButton.addEventListener('click', () => {
+    startButton.style.pointerEvents = 'none';
+    deg = Math.floor(3000 + Math.random() * 5000);
+    wheel.style.transition = 'all 5s ease-out';
+    wheel.style.transform = `rotate(${deg}deg)`;
+    wheel.classList.add('blur');
+  });
+
+  wheel.addEventListener('transitionend', () => {
+    wheel.classList.remove('blur');
+    startButton.style.pointerEvents = 'auto'
+    wheel.style.transition = 'none';
+    const actualDeg = deg % 360;
+    wheel.style.transform = `rotate(${actualDeg}deg)`;
+  });
+})();
+
+
